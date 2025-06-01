@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naventi</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0 1rem;
+    }
+    #phrase {
+      font-size: 2.5rem;
+      text-align: center;
+      white-space: pre-line;
+      min-height: 6rem;
+      text-transform: lowercase;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background: none;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      text-transform: lowercase;
+    }
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="phrase"></div>
+  <button onclick="newPhrase()">more phrases</button>
+
+  <script>
+    const phrases = [
+      "stillness doesn’t mean stagnation.",
+      "some storms don’t need thunder.",
+      "gravity moves quiet.",
+      "depth doesn’t announce itself.",
+      "controlled fire never flickers loud.",
+      "motion without spectacle.",
+      "calm is a strategy.",
+      "loud fades, weight lasts.",
+      "truth travels quietly.",
+      "shadows hold shape.",
+      "pressure without noise.",
+      "a storm, silent on arrival.",
+      "absence louder than presence.",
+      "certainty doesn’t echo.",
+      "movement without applause.",
+      "soundless impact.",
+      "patience is power held.",
+      "presence, not performance.",
+      "resonance, not volume.",
+      "held energy hits hardest.",
+      "depth over display.",
+      "silence isn't empty.",
+      "quiet moves leave deep marks.",
+      "refinement over reaction.",
+      "undisturbed but undeniable.",
+      "darkness isn't absence—it’s density.",
+      "strength doesn’t shout.",
+      "noise never made history.",
+      "the unseen builds louder.",
+      "composure is louder than chaos.",
+      "reticence is control.",
+      "not hidden, just whole.",
+      "less said. more sent.",
+      "power in the pause.",
+      "the loudest choice is restraint.",
+      "not shy—strategic.",
+      "volume distracts from value.",
+      "low frequency. deep force.",
+      "the ripple beats the roar.",
+      "impact in whisper.",
+      "elevation isn’t exposed.",
+      "no noise. just force.",
+      "intent lives in the still.",
+      "muted doesn’t mean minor.",
+      "unseen storms still shift the air.",
+      "formed in quiet. felt in full.",
+      "let stillness carry weight.",
+      "composure is movement mastered.",
+      "subtle doesn’t mean soft.",
+      "tone without tension.",
+      "marked in motionless moments.",
+      "hushed doesn’t mean halted.",
+      "the light hits different in silence.",
+      "moved, not marveled.",
+      "force held in finesse.",
+      "the quake before the crack.",
+      "direction in the quiet.",
+      "louder without language.",
+      "muted speaks volumes.",
+      "under the radar, over the line.",
+      "restraint writes deeper.",
+      "you don't have to be loud to be real.",
+      "momentum speaks in silence.",
+      "clarity isn’t chaotic.",
+      "weight doesn’t yell.",
+      "invisible doesn’t mean imagined.",
+      "the echo is in the intent.",
+      "inward motion. outward shift.",
+      "not loud. just lasting.",
+      "deliberate, not delayed.",
+      "the voice behind silence.",
+      "elegance wrapped in control.",
+      "measured force. total effect.",
+      "timeless doesn't tweet.",
+      "fewer words. fuller weight.",
+      "you don’t hear gravity coming.",
+      "the hush before the strike.",
+      "real doesn’t require reply.",
+      "movement beneath the noise.",
+      "resistance in stillness.",
+      "hidden doesn’t mean hollow.",
+      "the quiet knows what it’s doing.",
+      "refined for impact.",
+      "controlled. not contained.",
+      "understated isn’t underwhelming.",
+      "absence as assertion.",
+      "this silence has substance.",
+      "behind every shadow, a signal.",
+      "subtle, but sharp.",
+      "the unseen sets the tone.",
+      "motion without the stage.",
+      "intention over interference.",
+      "no celebration. just precision.",
+      "the work speaks—so we don’t.",
+      "always the undercurrent.",
+      "refined rage. quiet revolt.",
+      "you don’t have to be seen to be felt.",
+      "designed for presence. not praise.",
+      "underwhelming by choice. unforgettable by nature.",
+      "felt first. understood later.",
+      "formed in silence. released in storms.",
+      "the impact lives longer than the noise."
+    ];
+
+    function typeEffect(element, text, speed = 40) {
+      element.innerHTML = "";
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+
+    function newPhrase() {
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      const element = document.getElementById("phrase");
+      typeEffect(element, phrase);
+    }
+
+    window.onload = newPhrase;
+  </script>
+</body>
+</html>
