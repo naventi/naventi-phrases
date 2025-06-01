@@ -2,171 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Naventi Thought</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naventi</title>
   <style>
     body {
-      background: #111;
-      color: #eee;
-      font-family: 'Courier New', Courier, monospace;
+      background-color: black;
+      color: white;
+      font-family: "Courier New", monospace;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
-      text-align: center;
-      padding: 20px;
-      font-size: 1.5rem;
-      user-select: none;
-      flex-direction: column;
+      padding: 0 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
     }
     #phrase {
-      max-width: 600px;
-      line-height: 1.4;
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      min-height: 80px;
-      white-space: pre-wrap;
+      font-size: 2rem;
+      text-align: center;
+      white-space: pre-line;
+      min-height: 6rem;
     }
     button {
-      margin-top: 40px;
-      padding: 10px 20px;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
       font-size: 1rem;
-      font-family: 'Courier New', Courier, monospace;
-      background: transparent;
-      border: 1px solid #eee;
-      color: #eee;
+      background: none;
+      border: 1px solid white;
+      color: white;
       cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s ease;
     }
     button:hover {
-      background: #eee;
-      color: #111;
+      background-color: white;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <div id="phrase">Loading...</div>
-  <button onclick="typeRandomPhrase()">Another Thought</button>
+  <h1>naventi</h1>
+  <div id="phrase"></div>
+  <button onclick="newPhrase()">generate</button>
 
   <script>
     const phrases = [
-      "The silence holds weight.",
-      "Form over noise.",
-      "Quiet strength in every detail.",
-      "Minimal moves, maximal intent.",
-      "Design that speaks without shouting.",
-      "Shadows reveal more than light.",
-      "Intentional disruption.",
-      "Crafted for those who see beyond.",
-      "Power in restraint.",
-      "Subtle but undeniable.",
-      "Stillness is the source of movement.",
-      "Less noise, more meaning.",
-      "The unseen shapes the visible.",
-      "Actions speak beyond words.",
-      "Strength thrives in the quiet.",
-      "Purpose fuels every choice.",
-      "Where detail lives, power follows.",
-      "Discipline is the silent architect.",
+      "Muted. For now.",
+      "Power doesn’t raise its voice.",
+      "The lightning without thunder.",
+      "Disruption looks quiet from a distance.",
+      "For those who say nothing—and change everything.",
       "Intent over impulse.",
-      "Change happens in shadows.",
-      "Quiet does not mean weak.",
-      "The storm whispers its coming.",
-      "In darkness, light is revealed.",
-      "Silence carves the path forward.",
-      "Mastery hides behind humility.",
-      "A quiet mind is a sharp mind.",
-      "Depth over display.",
-      "The unseen moves mountains.",
-      "Invisible hands guide the flow.",
-      "A thought can reshape worlds.",
-      "Restraint is a form of power.",
-      "Patience is the ultimate strength.",
-      "Control without force.",
-      "Presence is felt, not heard.",
-      "Less said, more done.",
-      "The quiet disruptors rewrite rules.",
-      "In subtlety lies revolution.",
-      "Invisible but indispensable.",
-      "Power speaks softly, moves swiftly.",
-      "The calm before impact.",
-      "A spark unseen ignites the change.",
-      "Silence is the loudest message.",
-      "Understated yet unstoppable.",
-      "Details build the invisible framework.",
-      "Quiet confidence commands respect.",
-      "Simplicity reveals complexity.",
-      "The quiet forge of progress.",
-      "Strength wrapped in stillness.",
-      "The shadows hold the blueprint.",
-      "Silence breeds clarity.",
-      "Invisible forces shape destiny.",
-      "Power resides in the pause.",
-      "Silent steps leave the deepest marks.",
-      "The unseen hand moves the world.",
-      "Calm waters run deep.",
-      "The quiet mind shapes the future.",
-      "Discipline whispers success.",
-      "Less noise, more focus.",
-      "Shadows cast the strongest outlines.",
-      "Stealth is a form of strength.",
-      "Mastery demands silence.",
-      "Unseen, yet undeniably present.",
-      "In silence, clarity grows.",
-      "Minimal effort, maximal effect.",
-      "The quiet architect of change.",
-      "Soft power, hard impact.",
-      "Stillness fuels momentum.",
-      "The invisible pulse of progress.",
-      "Silent influence, loud results.",
-      "The calm at the center of the storm.",
-      "Quiet resolve breaks barriers.",
-      "The shadows are never empty.",
-      "In silence, power accumulates.",
-      "Invisible threads bind the world.",
-      "Quiet strength moves mountains.",
-      "Silence sharpens vision.",
-      "Stillness precedes the storm.",
-      "The unseen changes everything.",
-      "Power wrapped in patience.",
-      "Soft whispers shift paradigms.",
-      "Quiet courage sparks revolutions.",
-      "Silence carves paths unseen.",
-      "Invisible forces shape futures.",
-      "Quiet does not mean absent.",
-      "Silent tides reshape shores.",
-      "Still minds move the masses.",
-      "The silent storm gathers strength.",
-      "Quiet hands build empires.",
-      "Invisible strength, visible change.",
-      "The calm voice of power.",
-      "Silence is the first step.",
-      "Power lives between the words.",
-      "Quiet hands, loud results.",
-      "Silent roots grow the strongest trees.",
-      "In stillness, there is power."
+      "Move different.",
+      "Less shown. More known.",
+      "Silence is strategy.",
+      "Presence without performance.",
+      "Built in the background.",
+      "Invisible isn’t inactive.",
+      "Quiet is loud when you know where to listen.",
+      "Design, distilled.",
+      "Be the signal, not the noise.",
+      "Stillness doesn’t mean stagnation.",
+      "Some storms don’t need thunder.",
+      "Seen by few. Felt by all.",
+      "Soft-spoken. Sharp-minded.",
+      "Truth doesn’t need volume.",
+      "Echoes without sound.",
+      "Minimal words, maximal weight.",
+      "Subtle is sovereign.",
+      "The loudest move is no movement.",
+      "Discipline disguised as ease.",
+      "Unseen, but unmistakable.",
+      "The work whispers. The results shout.",
+      "The art of restraint.",
+      "Underexposed, overdelivering.",
+      "Measured silence, intentional impact.",
+      "Direction, not attention.",
+      "Noise fades. Intention stays.",
+      "The shift before the quake.",
+      "Precision, not performance.",
+      "Elegance in anonymity.",
+      "Calm before every conquest.",
+      "Control that doesn’t need control.",
+      "Moved by meaning, not motion.",
+      "More than seen. Understood.",
+      "Purpose, without punctuation.",
+      "Quiet storms leave the deepest marks.",
+      "Authority doesn’t ask permission.",
+      "Not loud. Just certain.",
+      "Energy held, not spent.",
+      "The weight of what isn’t said.",
+      "Power as posture, not volume.",
+      "Proof over profile.",
+      "Absence, then arrival.",
+      "Still water cuts deepest.",
+      "The shape of subtle strength.",
+      "No need to shout when you're sure.",
+      "Unsaid, but undeniable.",
+      "Intent writes louder than speech.",
+      "Not revealed. Remembered.",
+      "Built for silence. Wired for impact.",
+      "All signal. No noise.",
+      "Louder in motion than in words.",
+      "Pressure moves in silence.",
+      "Clarity whispers.",
+      "Mastery is quiet.",
+      "Muted force. Full intent.",
+      "Walk softly. Leave marks.",
+      "Felt but not featured.",
+      "Controlled burn.",
+      "Disrupt softly.",
+      "Tuned to silence.",
+      "Hidden hands guide louder paths.",
+      "Soundless strikes.",
+      "Presence without spotlight.",
+      "Power in pause.",
+      "Influence doesn't beg.",
+      "Restraint is rebellion.",
+      "Silent doesn’t mean still.",
+      "Steady is strong.",
+      "Every detail, intentional.",
+      "Let the work speak.",
+      "Dark-horse energy.",
+      "Visibility is optional. Vision isn’t.",
+      "The uncelebrated edge.",
+      "Every move considered.",
+      "Signal coded in silence.",
+      "Strength sits quietly.",
+      "Quiet doesn’t mean small.",
+      "Pressure moves underground.",
+      "No noise. Just clarity.",
+      "Presence is louder than voice.",
+      "Refined and relentless.",
+      "Minimal by design. Maximal in impact.",
+      "Move unseen. Speak through result.",
+      "Gravity in minimalism.",
+      "Every shadow holds shape.",
+      "Motion, unannounced.",
+      "Leave nothing loud. Leave nothing missed.",
+      "Obscured, never overlooked.",
+      "Posture over pose.",
+      "The signal in the silence.",
+      "Markless, but not missed.",
+      "Composed, not controlled.",
+      "The art of unspoken presence.",
+      "Speak less. Echo longer.",
+      "Shape without being seen.",
+      "Substance in every shadow.",
+      "Invisible doesn’t mean idle."
     ];
 
-    function typeRandomPhrase() {
-      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-      const phraseDiv = document.getElementById('phrase');
-      phraseDiv.textContent = "";
+    function typeEffect(element, text, speed = 40) {
+      element.innerHTML = "";
       let i = 0;
-
-      const typing = setInterval(() => {
-        if (i < phrase.length) {
-          phraseDiv.textContent += phrase.charAt(i);
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
           i++;
         } else {
-          clearInterval(typing);
+          clearInterval(timer);
         }
-      }, 40); // Adjust speed here (milliseconds per character)
+      }, speed);
     }
 
-    // Type on initial load
-    typeRandomPhrase();
+    function newPhrase() {
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      const element = document.getElementById("phrase");
+      typeEffect(element, phrase);
+    }
+
+    window.onload = newPhrase;
   </script>
 </body>
-</html> 
+</html>
